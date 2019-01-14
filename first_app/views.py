@@ -2,11 +2,19 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from . import forms
 
+def find_train(request):
+    return render(request, 'find_train.html')
+
 def index(request):
     return render(request, 'first_app/index.html')
 
 def user(request):
     return render(request, 'first_app/userDashboard.html')
+
+def result(request):
+    source = request.POST["source"]
+    destination = request.POST["destination"]
+    return render(request, 'find_train.html')
 
 def Register_view(request):
     form = forms.Register()
